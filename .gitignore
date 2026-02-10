@@ -1,0 +1,37 @@
+# Local assets and design files
+Nike-air-force/
+ui-ux-designs/
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Node modules
+node_modules/
+dist/
+build/
+.next/
+
+# Assets
+*.glb
+*.gltf
+*.bin
+
+# commit message
+commit_msg.txt
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
