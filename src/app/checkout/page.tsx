@@ -13,7 +13,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { StripePaymentForm } from "@/components/checkout/StripePaymentForm";
 import { useAction, useQuery, useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
-import { Id } from "../../../convex/_generated/dataModel";
+
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
@@ -97,7 +97,7 @@ export default function CheckoutPage() {
       await createOrder({
         userId: user._id,
         items: items.map((item) => ({
-          productId: item.id.toString() as Id<"products">,
+          productId: item.id.toString(),
           name: item.name,
           quantity: item.quantity,
           size: item.size,

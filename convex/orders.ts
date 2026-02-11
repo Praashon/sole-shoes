@@ -6,7 +6,7 @@ export const create = mutation({
     userId: v.id("users"),
     items: v.array(
       v.object({
-        productId: v.id("products"),
+        productId: v.string(),
         name: v.string(),
         quantity: v.number(),
         size: v.number(),
