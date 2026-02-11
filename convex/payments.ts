@@ -14,9 +14,7 @@ export const createPaymentIntent = action({
     if (!key) {
       throw new Error("STRIPE_SECRET_KEY environment variable is not set");
     }
-    const stripe = new Stripe(key, {
-      apiVersion: "2025-12-18.acacia" as any,
-    });
+    const stripe = new Stripe(key);
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount: args.amount,
