@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 
 export type CartItem = {
   id: number;
@@ -55,12 +55,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("sole-stock", JSON.stringify(stock));
   }, [items, stock]);
 
-  const getStock = (id: number, size: number) => {
+  const getStock = useCallback((id: number, size: number) => {
       const key = `${id}-${size}`;
       return stock[key] !== undefined ? stock[key] : 100;
-  };
+  }, [stock]);
 
-  const addItem = (newItem: Omit<CartItem, "quantity">) => {
+  const addItem = useCallback((newItem: Omit<CartItem, "quantity">) => {
     const key = `${newItem.id}-${newItem.size}`;
     const currentStock = stock[key] !== undefined ? stock[key] : 100;
 
@@ -86,15 +86,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       return [...prev, { ...newItem, quantity: 1 }];
     });
     return true;
-  };
+  }, [stock]);
 
-  const removeItem = (id: number, size: number) => {
-    // Optional: Restore stock when removing? User didn't ask, but logical. 
-    // For now, let's keep it simple as user just asked to decrease stock.
+  const removeItem = useCallback((id: number, size: number) => {
     setItems((prev) => prev.filter((item) => !(item.id === id && item.size === size)));
-  };
+  }, []);
 
-  const clearCart = () => setItems([]);
+  const clearCart = useCallback(() => setItems([]), []);
 
   const cartCount = items.reduce((acc, item) => acc + item.quantity, 0);
   const cartTotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);

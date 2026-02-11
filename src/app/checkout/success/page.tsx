@@ -9,7 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useSearchParams } from "next/navigation";
 import { useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useCart } from "@/providers/cart-provider";
 import { motion } from "framer-motion";
 
@@ -17,11 +17,13 @@ function SuccessContent() {
   const searchParams = useSearchParams();
   const paymentIntentId = searchParams.get("payment_intent");
   const { clearCart } = useCart();
+  const hasClearedCart = useRef(false);
   
   const order = useQuery(api.orders.getByPaymentIntent, paymentIntentId ? { paymentIntentId } : "skip");
 
   useEffect(() => {
-    if (order) {
+    if (order && !hasClearedCart.current) {
+        hasClearedCart.current = true;
         clearCart();
     }
   }, [order, clearCart]);
