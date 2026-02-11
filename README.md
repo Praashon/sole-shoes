@@ -13,4 +13,3 @@ Start the development server to see the latest changes.
 ```bash
 npm run dev
 ```
-![Uploading localhost_3000_.png…]()
