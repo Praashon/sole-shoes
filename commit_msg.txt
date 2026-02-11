@@ -1,9 +1,0 @@
-Implement product reviews and refine brand interface
-
-- Added a live product review system with Convex backend and login-gated UI
-- Seeded realistic mock reviews across all products to enhance social proof
-- Integrated global Ctrl+K search with fuzzy matching and keyboard navigation
-- Refined UI aesthetics to replace AI-generated elements with direct, humanized copy
-- Implemented GSAP scroll-triggered animations on core landing and shop pages
-- Unified checkout experience with the shared application design system
-- Optimized project repository structure with improved gitignore and README

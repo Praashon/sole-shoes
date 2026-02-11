@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sole - Minimalist Shoe Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f5f5f7",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                    boxShadow: {
+                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+                        'apple-card': '0 10px 30px -10px rgba(0,0,0,0.05)',
+                        'apple-hover': '0 20px 40px -10px rgba(0,0,0,0.1)'
+                    }
+                },
+            },
+        }
+    </script>
+<style>.glass-nav {
+            background: rgba(251, 251, 253, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(16, 25, 34, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        }
+        .dark .glass-panel {
+            background: rgba(20, 20, 20, 0.75);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }html {
+            scroll-behavior: smooth;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1d1d1f] dark:text-white font-display antialiased transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm transition-opacity duration-300"></div>
+<div class="fixed inset-y-0 right-0 z-[70] flex w-full max-w-md flex-col glass-panel transform transition-transform duration-300 translate-x-0">
+<div class="flex items-center justify-between px-6 py-5 border-b border-black/5 dark:border-white/10">
+<h2 class="text-xl font-bold text-[#1d1d1f] dark:text-white">Shopping Bag <span class="text-sm font-medium text-[#86868b] ml-1">(2)</span></h2>
+<button class="rounded-full p-2 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<div class="flex gap-4">
+<div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-[#f5f5f7] dark:bg-white/5 border border-black/5 dark:border-white/5">
+<div class="h-full w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDklU2VbP96nwI43weLXD1SH-yZXE70tmzqy3YbYSLUW2q7I2RV9Cj_2oe7dCA0nJne_SDE4pjS11sXgiUS5FnboFAjv1e1D943xz1CfHwgxDNCnTeF3WKw5kVonIpMkLNga2Hdwyr3SaqrZyxtdm4-Jd2oSerdixH37IuVdQVkKxFMESric6PUApxwI77XbvpzJT1TBmoquj4xn-E8tGyPu_lDv_7f5Jjoek44L26ElE3fhM-A2FrThFcUiX6-RzWElVj6mn_8F1Op');"></div>
+</div>
+<div class="flex flex-1 flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-base font-semibold text-[#1d1d1f] dark:text-white">Nike Air Max 90</h3>
+<p class="text-base font-semibold text-[#1d1d1f] dark:text-white">$120.00</p>
+</div>
+<p class="mt-1 text-sm text-[#86868b] dark:text-slate-400">Size: US 10 • Red/White</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3 border border-black/10 dark:border-white/10 rounded-lg px-2 py-1">
+<button class="text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white transition-colors">-</button>
+<span class="text-sm font-medium w-4 text-center">1</span>
+<button class="text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white transition-colors">+</button>
+</div>
+<button class="text-sm font-medium text-primary hover:text-primary/80 transition-colors">Remove</button>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-[#f5f5f7] dark:bg-white/5 border border-black/5 dark:border-white/5">
+<div class="h-full w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxfk534JOhVkQY9C3D1tP8p_3hP7vxmYO9dny8O0MvXXTQApqaNBIF1jntpf-2xgnROtbIpPmOIGeQEMz1MfwWtx2mYvt_WZLzShj8X_hDoWJ30WOkJbm8Rm_kYJCg6R8u3ZaUjqQfOEg9xDp_FYnylEAs9sq-hTrtnThbHCNCxqLyXKMe2DMAQvcKGAn9NrcG65gRZ6IFbM3inwwwYLf1MqEwZ8HL2JdbsqF73Jjk0qbjr1fWHRXJd--nDZoMgDHU3SF8XF5gv5tT');"></div>
+</div>
+<div class="flex flex-1 flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-base font-semibold text-[#1d1d1f] dark:text-white">Air Jordan 1</h3>
+<p class="text-base font-semibold text-[#1d1d1f] dark:text-white">$175.00</p>
+</div>
+<p class="mt-1 text-sm text-[#86868b] dark:text-slate-400">Size: US 9.5 • Retro High</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3 border border-black/10 dark:border-white/10 rounded-lg px-2 py-1">
+<button class="text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white transition-colors">-</button>
+<span class="text-sm font-medium w-4 text-center">1</span>
+<button class="text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white transition-colors">+</button>
+</div>
+<button class="text-sm font-medium text-primary hover:text-primary/80 transition-colors">Remove</button>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-black/5 dark:border-white/10 px-6 py-6 bg-white/50 dark:bg-black/20 backdrop-blur-md">
+<div class="flex justify-between text-base font-medium text-[#1d1d1f] dark:text-white mb-4">
+<p>Subtotal</p>
+<p>$295.00</p>
+</div>
+<div class="flex justify-between text-sm text-[#86868b] dark:text-slate-400 mb-6">
+<p>Shipping</p>
+<p>Calculated at checkout</p>
+</div>
+<button class="w-full flex items-center justify-center rounded-full border border-transparent bg-black dark:bg-white px-6 py-4 text-base font-bold text-white dark:text-black shadow-lg hover:bg-gray-900 dark:hover:bg-gray-100 active:scale-[0.98] transition-all">
+                    Check Out
+                </button>
+<div class="mt-4 flex justify-center text-xs text-[#86868b]">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">lock</span> Secure Checkout</span>
+</div>
+</div>
+</div>
+<header class="fixed top-0 z-50 w-full glass-nav transition-all duration-300">
+<div class="mx-auto flex h-14 max-w-[1024px] items-center justify-between px-6 lg:px-8">
+<div class="flex items-center gap-4 text-[#1d1d1f] dark:text-white">
+<a class="flex items-center gap-2 group" href="#">
+<span class="material-symbols-outlined text-[24px] transition-transform group-hover:rotate-12">footprint</span>
+<h2 class="text-lg font-semibold tracking-tight">Sole</h2>
+</a>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-xs font-medium text-[#1d1d1f]/80 hover:text-primary dark:text-white/80 dark:hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="text-xs font-medium text-[#1d1d1f]/80 hover:text-primary dark:text-white/80 dark:hover:text-primary transition-colors" href="#">Brands</a>
+<a class="text-xs font-medium text-[#1d1d1f]/80 hover:text-primary dark:text-white/80 dark:hover:text-primary transition-colors" href="#">Sale</a>
+</nav>
+<div class="flex items-center gap-6 text-[#1d1d1f]/80 dark:text-white/80">
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button class="hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="absolute -top-1 -right-1 flex h-3 w-3 items-center justify-center rounded-full bg-primary text-[8px] font-bold text-white">2</span>
+</button>
+<button class="md:hidden hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-14">
+<section class="relative flex flex-col items-center justify-center px-6 py-20 md:py-32 lg:min-h-[90vh]">
+<div class="mx-auto max-w-[1024px] w-full text-center z-10">
+<div class="animate-fade-in-up space-y-6">
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-[#1d1d1f] dark:text-white leading-[1.05]">
+                            Step into the <br class="hidden md:block"/> Future.
+                        </h1>
+<p class="text-lg md:text-2xl font-medium text-[#86868b] dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                            Engineered for comfort. Designed for speed. Experience the next generation of footwear.
+                        </p>
+<div class="pt-4 flex items-center justify-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-3 text-base font-medium transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/30">
+                                Buy Now
+                            </button>
+<a class="text-primary hover:underline font-medium text-base flex items-center gap-1 group" href="#collection">
+                                Learn more <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-12 md:mt-16 w-full max-w-5xl px-4 relative group perspective-1000">
+<div class="absolute inset-0 bg-gradient-to-tr from-blue-100/50 via-purple-100/30 to-transparent dark:from-blue-900/20 dark:via-purple-900/10 rounded-full blur-3xl opacity-60 scale-75"></div>
+<div class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl transition-transform duration-700 ease-out hover:scale-[1.01]" data-alt="Close up of a pair of Nike shoes on a white background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZMdY7LbJFS8ZiwQJRSQzqSp3cbaPUKdtQOSJmvCrKVHdZpw2RZHL_Cyx9qalU4vy5hJBlGGrGcjfl4eCHD_q3LcfV7WFkq4aO0CXhPUHohfwdUhtyW_z_BVkj2mBq2b__lIQqfMlIe8qQUoHgShu_YqbYj7Us5plEbcommlvlwhFwWEZex0cpJaWP595eku-gwvkscZBsZbCo5nqfuehZEQhXoN2G7v91j930jdTphsrHkImgc80Lah3GvS907QAUQuDzeYbJLB0P'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-black/5 dark:bg-black/20"></div>
+</div>
+</div>
+</section>
+<section class="pt-16 pb-8 px-6" id="collection">
+<div class="mx-auto max-w-[1024px]">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+<h2 class="text-3xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">Latest Drops</h2>
+<div class="flex overflow-x-auto no-scrollbar gap-2 pb-2 w-full md:w-auto">
+<button class="whitespace-nowrap rounded-full bg-[#1d1d1f] text-white px-5 py-2 text-sm font-medium transition-transform active:scale-95 dark:bg-white dark:text-black">All</button>
+<button class="whitespace-nowrap rounded-full bg-white dark:bg-white/10 text-[#1d1d1f] dark:text-white border border-[#d2d2d7] dark:border-white/10 px-5 py-2 text-sm font-medium hover:bg-[#f5f5f7] dark:hover:bg-white/5 transition-colors">Nike</button>
+<button class="whitespace-nowrap rounded-full bg-white dark:bg-white/10 text-[#1d1d1f] dark:text-white border border-[#d2d2d7] dark:border-white/10 px-5 py-2 text-sm font-medium hover:bg-[#f5f5f7] dark:hover:bg-white/5 transition-colors">Adidas</button>
+<button class="whitespace-nowrap rounded-full bg-white dark:bg-white/10 text-[#1d1d1f] dark:text-white border border-[#d2d2d7] dark:border-white/10 px-5 py-2 text-sm font-medium hover:bg-[#f5f5f7] dark:hover:bg-white/5 transition-colors">New Balance</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-white/5 p-4 shadow-apple-card hover:shadow-apple-hover transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-[#f5f5f7] dark:bg-black/20 mb-4">
+<div class="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur text-black shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Red Nike running shoe floating on red background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDklU2VbP96nwI43weLXD1SH-yZXE70tmzqy3YbYSLUW2q7I2RV9Cj_2oe7dCA0nJne_SDE4pjS11sXgiUS5FnboFAjv1e1D943xz1CfHwgxDNCnTeF3WKw5kVonIpMkLNga2Hdwyr3SaqrZyxtdm4-Jd2oSerdixH37IuVdQVkKxFMESric6PUApxwI77XbvpzJT1TBmoquj4xn-E8tGyPu_lDv_7f5Jjoek44L26ElE3fhM-A2FrThFcUiX6-RzWElVj6mn_8F1Op');"></div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-primary transition-colors">Nike Air Max 90</h3>
+<span class="text-sm font-semibold text-[#1d1d1f] dark:text-white">$120</span>
+</div>
+<p class="text-sm text-[#86868b] dark:text-slate-400">Running Collection</p>
+<div class="mt-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="block h-3 w-3 rounded-full bg-red-500 border border-white dark:border-white/10"></span>
+<span class="block h-3 w-3 rounded-full bg-black border border-white dark:border-white/10"></span>
+<span class="block h-3 w-3 rounded-full bg-white border border-gray-200"></span>
+</div>
+</div>
+</div>
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-white/5 p-4 shadow-apple-card hover:shadow-apple-hover transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-[#f5f5f7] dark:bg-black/20 mb-4">
+<span class="absolute top-3 left-3 z-10 rounded-md bg-black/5 dark:bg-white/10 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-[#1d1d1f] dark:text-white backdrop-blur-sm">New</span>
+<div class="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur text-black shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="High top grey Nike sneaker" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCpUq8QwBVMM6DO4iDtoXraKgg635JbdYvwTfE2D0YIUKs_dPheWgSioTi8tVX4eCDjuhiceKdjeZ7GFeokzYgx6dKq2dejK_QTGRYeRi0XGGHXDjBUI3Ia7SPnDx7vuX-IGT2SuhFIUwploao0fZtzId4n-ovKUuEKATKjpOJV53Blhsti34C1j3D9RoT093laKkQGIWPP65BrmXwENmP_dU_xFayTkxQf19rWeoouhhsFp2SAWbXF7CYW3OYIOaTxKxVBBuBEFwpZ');"></div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-primary transition-colors">Adidas Ultraboost</h3>
+<span class="text-sm font-semibold text-[#1d1d1f] dark:text-white">$180</span>
+</div>
+<p class="text-sm text-[#86868b] dark:text-slate-400">Performance Running</p>
+</div>
+</div>
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-white/5 p-4 shadow-apple-card hover:shadow-apple-hover transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-[#f5f5f7] dark:bg-black/20 mb-4">
+<div class="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur text-black shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Colorful Nike running shoes on purple background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC79W7a2OpAGrSirgs2gpMdqHTl5Px1LRKMcYmyW3qWMci25UHzBD_I3k7AOXjGfsrjExnPpd1F-538drz-jhLsBhTDIPEmWpugnCdIIj9CnE0ZEM4JEqlxBilLdC5Z-duslsg1445hKaUhm3AaHbkZjYo3AjwwL0flornEOEvMemCKrhOj2iI6b3EreDmqESGa1wr0b0X6UltEiqePA2HvQJN2iu74Oum8PTFxkBKE3lKmhKuE8vqa-ccOm_OlkGambA2f0Tx0yS3P');"></div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-primary transition-colors">Nike Dunk Low</h3>
+<span class="text-sm font-semibold text-[#1d1d1f] dark:text-white">$110</span>
+</div>
+<p class="text-sm text-[#86868b] dark:text-slate-400">Lifestyle</p>
+</div>
+</div>
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-white/5 p-4 shadow-apple-card hover:shadow-apple-hover transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-[#f5f5f7] dark:bg-black/20 mb-4">
+<div class="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur text-black shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Red and white Nike Air Jordan 1s" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxfk534JOhVkQY9C3D1tP8p_3hP7vxmYO9dny8O0MvXXTQApqaNBIF1jntpf-2xgnROtbIpPmOIGeQEMz1MfwWtx2mYvt_WZLzShj8X_hDoWJ30WOkJbm8Rm_kYJCg6R8u3ZaUjqQfOEg9xDp_FYnylEAs9sq-hTrtnThbHCNCxqLyXKMe2DMAQvcKGAn9NrcG65gRZ6IFbM3inwwwYLf1MqEwZ8HL2JdbsqF73Jjk0qbjr1fWHRXJd--nDZoMgDHU3SF8XF5gv5tT');"></div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-primary transition-colors">Air Jordan 1</h3>
+<span class="text-sm font-semibold text-[#1d1d1f] dark:text-white">$175</span>
+</div>
+<p class="text-sm text-[#86868b] dark:text-slate-400">Retro High</p>
+</div>
+</div>
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-white/5 p-4 shadow-apple-card hover:shadow-apple-hover transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-[#f5f5f7] dark:bg-black/20 mb-4">
+<span class="absolute top-3 left-3 z-10 rounded-md bg-red-500 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">Sale</span>
+<div class="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur text-black shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Green Nike sneaker on green background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCM2tIzOlr-mWPwmNvtm2b1n4dZGBiREhQb0oP5iTRIWhTGCdkqg5ahKNBvoVJJ4z99k-pQHqPqbB1u0Fjr4R-VtpKHVKdcAZ9KTEhvWndKaLgp_01a81_gZxDeRQPea2PRsLCCkdow8TZADuYmvsXIfVJKJ4RBo6S3LLMIFKMET_e-hYs55G07ftPT67QC3I4Vk2htkzhuOMEdD1cviASZ0BBUoTVxNf1UkQllAsJm-MGEThl1I8D1T7woB1kbj2OycaRz2F8oTBe1');"></div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-primary transition-colors">Nike Air Force 1</h3>
+<div class="flex flex-col items-end">
+<span class="text-sm font-semibold text-red-500">$90</span>
+<span class="text-xs text-[#86868b] line-through">$110</span>
+</div>
+</div>
+<p class="text-sm text-[#86868b] dark:text-slate-400">Essential</p>
+</div>
+</div>
+<div class="group flex flex-col rounded-2xl bg-white dark:bg-white/5 p-4 shadow-apple-card hover:shadow-apple-hover transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-[#f5f5f7] dark:bg-black/20 mb-4">
+<div class="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur text-black shadow-sm hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Orange Nike running shoes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMAqPlduQ01ARC4rOsvaezjjXO9cddOPBfRvGJ_M-JWFiJXxUVRgNxNaacF4o60P_5yBSomko-KwZ1_B4CcUiHpVzWPSL0wxz11I93sy4Ema08r_M5Ri-ygTp1IdFc028X0-POzL4gQNVHMWAHzOUtowwhwFjUI3xtrBSOkM02Z2opOvQwDV2Eb7rmWiEhiY7XnJaCZNM0OUibdoA8QEbZ5OeBfuno1QQpzpEsIU2iy0ZQZA9OIhPwZyr_-aQ9FTFA7dK8A7kS2m6x');"></div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-primary transition-colors">Nike React</h3>
+<span class="text-sm font-semibold text-[#1d1d1f] dark:text-white">$140</span>
+</div>
+<p class="text-sm text-[#86868b] dark:text-slate-400">Distance Running</p>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<a class="inline-flex items-center gap-2 text-[#1d1d1f] dark:text-white font-medium hover:text-primary transition-colors group" href="#">
+                            View all shoes <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<section class="py-20 px-6">
+<div class="mx-auto max-w-[1024px]">
+<div class="relative w-full rounded-3xl overflow-hidden bg-black text-white h-[500px] flex items-center shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center opacity-60" data-alt="Person tying shoelaces on running track" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAgfBBAOsuefqGSE_wGuwG644xT1sw1_I4LRdou6Fs5by-N-id3zWvjqJNao_bsF0MvWb_HxEcsGDPYe-r_Lv44RO6UnIMbMS5Eu9cUZZ7McpVTwbP7iEIr8EnLKFIpbb8szj5bkd4R-2w8JsTX_CVy5rX4NTTIioqmgC0TcxKROdlYoNX7A2NgLSfVNhxI5yzM5beMe--kCkDlatoTfb0SxXnMrcEKv7Hnn4RMdJVZjKU7ne0CEsB8oyaT32_p4SVsQ-nYDzR6CG7Y');"></div>
+<div class="relative z-10 p-10 md:p-16 max-w-lg">
+<span class="text-xs font-bold uppercase tracking-widest text-primary mb-4 block">Limited Edition</span>
+<h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight">Run beyond your limits.</h2>
+<p class="text-lg text-gray-200 mb-8 font-light">The new Zoom series is lighter, faster, and more responsive than ever before.</p>
+<button class="bg-white text-black hover:bg-gray-100 rounded-full px-8 py-3 text-base font-medium transition-all hover:scale-105 active:scale-95">
+                                Explore Collection
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#f5f5f7] dark:bg-[#101922] py-12 px-6 border-t border-[#d2d2d7]/30 dark:border-white/10">
+<div class="mx-auto max-w-[1024px] grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[24px]">footprint</span>
+<h2 class="text-lg font-semibold">Sole</h2>
+</div>
+<p class="text-xs text-[#86868b] dark:text-slate-400 leading-relaxed">
+                        Redefining footwear retail with simplicity and premium quality. Step into the future today.
+                    </p>
+</div>
+<div>
+<h3 class="text-xs font-semibold text-[#1d1d1f] dark:text-white uppercase tracking-wider mb-4">Shop</h3>
+<ul class="space-y-3">
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">New Arrivals</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Best Sellers</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Sale</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xs font-semibold text-[#1d1d1f] dark:text-white uppercase tracking-wider mb-4">About</h3>
+<ul class="space-y-3">
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Our Story</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Sustainability</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Careers</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">News</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xs font-semibold text-[#1d1d1f] dark:text-white uppercase tracking-wider mb-4">Support</h3>
+<ul class="space-y-3">
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Help Center</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Returns</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Contact Us</a></li>
+<li><a class="text-xs text-[#424245] dark:text-slate-300 hover:text-primary hover:underline" href="#">Size Guide</a></li>
+</ul>
+</div>
+</div>
+<div class="mx-auto max-w-[1024px] mt-12 pt-8 border-t border-[#d2d2d7]/30 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-[#86868b] dark:text-slate-500">© 2023 Sole Inc. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="text-xs text-[#86868b] dark:text-slate-500 hover:underline" href="#">Privacy Policy</a>
+<a class="text-xs text-[#86868b] dark:text-slate-500 hover:underline" href="#">Terms of Use</a>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
